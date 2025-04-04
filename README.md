@@ -75,13 +75,13 @@ graph LR
 - 框架: [Starlette](https://www.starlette.io/)
 - 服务器: [Uvicorn](https://www.uvicorn.org/)
 - HTTP客户端: [HTTPX](https://www.python-httpx.org/)
-- 协议: [MCP Server-Sent Events](mcp-server-sse-docs)
+- 传输协议: [MCP Server-Sent Transports](https://modelcontextprotocol.io/docs/concepts/transports)
 
 ## 🚀 快速开始
 
 ### 前置要求
 - Python 3.10+
-- Pipenv
+- uv
 
 ```bash
 # 安装依赖
