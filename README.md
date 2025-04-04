@@ -29,6 +29,7 @@
 ```bash
 # 安装依赖
 pip install -r requirements.txt
+```
 
 ## 🌟 系统架构
 ```mermaid
@@ -40,3 +41,4 @@ graph LR
     subgraph 计算集群
         API_Server
     end
+```
