@@ -14,7 +14,7 @@ graph LR
     MCP_Server-->|HTTP RPC| API_Server["API Server (Port 8000)"]
     API_Server-.->|计算函数| FUNC[(计算函数)]
     
-    subgraph 计算集群
+    subgraph 计算服务
         API_Server
     end
 ```
