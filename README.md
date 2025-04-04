@@ -12,7 +12,7 @@
 graph LR
     Client-->|SSE Streaming| MCP_Server["MCP Server (Port 8001)"]
     MCP_Server-->|HTTP RPC| API_Server["API Server (Port 8000)"]
-    API_Server-.->|计算原子| DB[(内存存储)]
+    API_Server-.->|计算函数| FUNC[(计算函数)]
     
     subgraph 计算集群
         API_Server
