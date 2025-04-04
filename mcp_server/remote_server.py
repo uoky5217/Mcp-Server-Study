@@ -7,11 +7,14 @@ from starlette.applications import Starlette
 from starlette.routing import Mount, Route
 
 sse = SseServerTransport("/messages")
-# mcp = FastMCP("My App", transport=sse)
 app = Server("mcp server")
 
 @app.list_tools()
 async def list_tools() -> list[types.Tool]:
+    """获取可用工具列表
+    Returns:
+        list[types.Tool]: 返回包含四则运算工具的列表
+    """
     return [
         types.Tool(
             name="calculate_sum",
@@ -68,6 +71,15 @@ async def call_tool(
     name: str,
     arguments: dict
 ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
+    """调用指定工具并返回结果
+    Args:
+        name: 工具名称
+        arguments: 工具参数
+    Returns:
+        list: 包含文本结果的列表
+    Raises:
+        ValueError: 当工具不存在时抛出
+    """
     if name == "calculate_sum":
         a = arguments["a"]
         b = arguments["b"]
@@ -95,21 +107,22 @@ async def call_tool(
     raise ValueError(f"Tool not found: {name}")
 
 async def handle_sse(request):
+    """处理服务器发送事件（SSE）连接
+    Args:
+        request: Starlette 请求对象
+    """
     async with sse.connect_sse(request.scope, request.receive, request._send) as streams:
         await app.run(streams[0], streams[1], app.create_initialization_options())
-
-async def handle_messages(request):
-    await sse.handle_post_message(request.scope, request.receive, request._send)
-
+        
 starlette_app = Starlette(
     debug=True, 
     routes=[
         Route("/sse", endpoint=handle_sse),
-        Mount("/messages/", app=sse.handle_post_message)
-        # Route("/messages", endpoint=handle_messages, methods=["POST"]),
+        Mount("/messages/", app=sse.handle_post_message),
         ]
 )
 
 import uvicorn
 if __name__ == "__main__":
+    """启动 FastAPI 服务"""
     uvicorn.run(starlette_app, host="127.0.0.1", port=8001)
