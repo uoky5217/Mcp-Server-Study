@@ -1,10 +1,11 @@
-# MCP 计算网关 ⚡
+# MCP 学习项目⚡
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![架构: 微服务](https://img.shields.io/badge/architecture-microservices-green.svg)]()
 [![测试: Pytest](https://img.shields.io/badge/testing-pytest-00C4CC.svg)]()
 
-分布式计算网关系统，提供统一的MCP协议接入层和原子计算能力抽象。
+## 🌟 项目简介
+本项目是一个基于MCP协议的学习程序，提供了四则运算工具集，支持实时消息传输和异步HTTP客户端。
 
 ## 🌟 系统架构
 ```mermaid
