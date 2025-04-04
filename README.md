@@ -28,6 +28,17 @@ mcp_server目录下是mcp的server内容，包含mcp的两种实现方式
   }
 }
 ```
+#### stdio运行方式
+```bash
+#进入api_server目录下
+python main.py
+#启动api 服务
+
+#配置好cline的cfg后
+#在cline中测试mcp server
+```
+
+
 ### 第二种是sse方式
 使用uvicon生成一个服务，使用cline插件的remote server方式进行配置连接。
 主要功能包含在remote_server.py中，下面附上cline的cfg配置
@@ -49,6 +60,20 @@ mcp_server目录下是mcp的server内容，包含mcp的两种实现方式
   }
 }
 ```
+#### sse运行方式
+```bash
+#进入api_server目录下
+python main.py
+#启动api 服务
+
+#进入mcp_server目录下
+python remote_server.py
+#启动mcp server
+
+#配置好cline的cfg后
+#在cline中测试mcp server
+```
+
 
 ## 🌟 系统架构
 ```mermaid
