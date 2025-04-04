@@ -5,18 +5,6 @@
 [![测试: Pytest](https://img.shields.io/badge/testing-pytest-00C4CC.svg)]()
 
 分布式计算网关系统，提供统一的MCP协议接入层和原子计算能力抽象。
-
-## 🌟 系统架构
-```mermaid
-graph LR
-    Client-->|SSE Streaming| MCP_Server["MCP Server (Port 8001)"]
-    MCP_Server-->|HTTP RPC| API_Server["API Server (Port 8000)"]
-    API_Server-.->|计算原子| DB[(内存存储)]
-    
-    subgraph 计算集群
-        API_Server
-    end
-
 ## ✨ 核心功能
 
 - 🧮 四则运算工具集（加减乘除）
@@ -41,3 +29,14 @@ graph LR
 ```bash
 # 安装依赖
 pip install -r requirements.txt
+
+## 🌟 系统架构
+```mermaid
+graph LR
+    Client-->|SSE Streaming| MCP_Server["MCP Server (Port 8001)"]
+    MCP_Server-->|HTTP RPC| API_Server["API Server (Port 8000)"]
+    API_Server-.->|计算原子| DB[(内存存储)]
+    
+    subgraph 计算集群
+        API_Server
+    end
