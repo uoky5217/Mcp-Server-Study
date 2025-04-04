@@ -5,3 +5,4 @@ __pycache__/mcp_server.cpython-312.pyc
 __pycache__/api_server.cpython-312.pyc
 mcp_server/__pycache__/server.cpython-312.pyc
 tests/test_api_server.py.bak
+.vscode
